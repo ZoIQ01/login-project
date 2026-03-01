@@ -9,7 +9,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.conf import settings
-from log_in.forms import SignUpForm
+
+from auth.forms import SignUpForm
 
 
 class SignUpView(CreateView):
@@ -38,7 +39,7 @@ class SignUpView(CreateView):
         uid = urlsafe_base64_encode(force_bytes(user.pk))
 
         verification_link = self.request.build_absolute_uri(
-            f"/verify-email/{uid}/{token}/"
+            f"/auth/verify-email/{uid}/{token}/"
         )
         
         subject = 'Verify your email address'

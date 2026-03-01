@@ -1,10 +1,10 @@
 # Auth Demo (Django)
 
 ## Features
-- Sign up at `/signup/`
-- Login at `/login/`
-- Logout at `/logout/`
-- Email verification link at `/verify-email/<uid>/<token>/`
+- Sign up at `/auth/signup/`
+- Login at `/auth/login/`
+- Logout at `/auth/logout/`
+- Email verification link at `/auth/verify-email/<uid>/<token>/`
 - Django admin at `/admin/`
 
 ## Tech stack
@@ -16,8 +16,8 @@
 - `python-decouple`
 
 ## Project structure
-- `log_in/` — project configuration (`settings.py`, `urls.py`, `forms.py`, templates)
-- `log_in_app/` — app logic (`views.py`, admin configuration)
+- `core/` — project configuration (`settings.py`, `urls.py`, `wsgi.py`)
+- `auth/` — authentication app logic (`views.py`, `forms.py`, templates, admin configuration)
 - `manage.py` — Django command entrypoint
 - `requirements.txt` — Python dependencies
 
@@ -53,7 +53,7 @@ Notes:
 - For real emails, configure SMTP credentials.
 
 ## Authentication flow
-1. User creates account at `/signup/`.
+1. User creates account at `/auth/signup/`.
 2. Account is saved as inactive.
 3. Verification email is sent.
 4. User clicks verification link.
